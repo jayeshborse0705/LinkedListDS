@@ -72,6 +72,45 @@ namespace LinkedList
             Console.WriteLine("Inserted value is:" + head);
             return head;
         }
-        
+        public Node RemoveFirstNode()
+        {
+            if (this.head == null)
+            {
+                return null;
+            }
+            this.head = this.head.next;
+            return this.head;
+       
+        }
+        public Node RemoveLastNode()
+        {
+            if (head == null)
+            {
+                return null;
+            }
+            if (head.next == null)
+            {
+                return null;
+            }
+            Node NewNode = head;
+            while (NewNode.next.next != null)
+            {
+                NewNode = NewNode.next;
+            }
+            NewNode.next = null;
+            return head;
+        }
+        public Node Search(int value)
+        {
+            while (this.head!=null)
+            {
+                if (this.head.data == value)
+                {
+                    return this.head;
+                }
+                this.head = this.head.next;
+            }
+            return null;
+        }
     }
 }
